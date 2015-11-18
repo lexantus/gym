@@ -1,0 +1,18 @@
+<div style="margin: 20px;">
+	<table class="table table-bordered" ng-controller="TableContoller as tableCtrl">
+		<thead>
+			<th>Exercise</th>
+			<th>Weight</th>
+			<th>Num</th>
+			<th>Date</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="ex in tableCtrl.data">
+				<td>{{tableCtrl.getExStr(ex.exercise.toString())}}</td>
+				<td>{{ex.weight}}</td>
+				<td>{{ex.num}}</td>
+				<td>{{ex.date | date}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

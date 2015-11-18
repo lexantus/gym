@@ -1,0 +1,39 @@
+<form name="form" ng-controller="FormController as formCtrl" ng-submit="form.$valid && formCtrl.ex.typeEx && formCtrl.submit(formCtrl.ex)" class="leftright" novalidate>
+	<div class="form-group">
+		<label for="exersizeInput">Exersize name</label>
+		<select id="exersizeInput" class="form-control" placeholder="Please, select exersize" ng-model="formCtrl.ex.typeEx" required>
+			<option value="" disabled selected hidden>Please, select exersize</option>
+			<option value="1">Bicepc</option>
+			<option value="2">Tricepc</option>
+			<option value="3">Legs</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="weightInput">Weight</label>
+		<div class="input-group">
+			<input id="weightInput" type="number" min="0" class="form-control" placeholder="Please, input weight" ng-model="formCtrl.ex.weight" required>
+			<span class="input-group-addon">kg</span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="countInput">Count</label>
+		<input id="countInput" type="number" min="1" class="form-control" placeholder="Please, input count" ng-model="formCtrl.ex.count" required>
+	</div>
+
+	<div class="form-group">
+		<label for="inputDate">Date</label>
+		<input id="inputDate" type="date" min="2000-01-01" max="2060-01-01" class="form-control" placeholder="Date(MM/DD/YYYY)" ng-model="formCtrl.ex.date"required>
+	</div>
+	<br>
+	<div>
+		<img width="100" class="img-thumbnail" ng-src="{{formCtrl.getImgSrc()}}" ng-show="formCtrl.isImgChosen(formCtrl.ex.typeEx)"></img>
+		<div ng-show="formCtrl.ex.typeEx">Ex input: {{formCtrl.getExStr()}}</div>
+		<div ng-show="formCtrl.ex.weight">Weight: {{formCtrl.ex.weight}}</div>
+		<div ng-show="formCtrl.ex.count">Count: {{formCtrl.ex.count}}</div>
+		<div ng-show="formCtrl.ex.date">Date: {{formCtrl.ex.date}}</div>
+	</div>
+
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
